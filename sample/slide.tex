@@ -1,0 +1,70 @@
+\nonstopmode
+
+\documentclass{beamer}
+
+\usepackage{euler}
+\usepackage[no-math]{fontspec}
+\usepackage{xltxtra}
+\usepackage{wrapfig}
+
+% 文章中に注釈を入れる
+\usepackage{bibentry}
+\nobibliography*
+
+% 使っているフォントと入れかえること。
+\setmainfont{VL PGothic}
+\setsansfont{VL PGothic}
+\setmonofont{VL Gothic}
+
+% xetexについては以下が詳しい
+% http://zrbabbler.sp.land.to/xelatex.html
+\XeTeXlinebreaklocale "ja"
+
+% navigation barをけして、ページ番号をいれる。
+% ページ数をいれておくと、指摘してもらうときに便利
+\usetheme{default}
+\setbeamerfont{page number in head/foot}{size=\large}
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}[frame number]
+
+% 言語によってはハイライトが効かなかったり、言語を使いわけたいときには以下のリンクを参照
+% コメント等に日本語を使いたい場合にはjlistingを使う必要がある
+% http://tex.stackexchange.com/questions/83882/how-to-highlight-python-syntax-in-latex-listings-lstinputlistings-command
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,
+numbers=left,}
+
+
+\title{Beamer サンプル}
+\author{@Tomoki\_Imai}
+\date[2014/04/30]
+
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Python}
+  \begin{figure}[htb]
+  \centering
+    \includegraphics[width=1.0\textwidth]{img/python.pdf}
+    \caption{Pythonのロゴ}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{コード}
+  \lstinputlisting[caption=メイン関数]{main.py}
+\end{frame}
+
+\begin{frame}
+  \bibentry{DBLP:books/aw/Knuth73a}
+\end{frame}
+
+\bibliographystyle{plain}
+\bibliography{library.bib}
+
+\end{document}
+
+
